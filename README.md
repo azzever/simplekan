@@ -24,7 +24,7 @@ We will use symmetric cubic interpolation as the basis functions, which interpol
 
 ### Fixed Input Range and Squashing Function
 
-We apply a squashing function (like tanh) to restrict the input to be in the range $[-1, 1]$. This allows us to keep a fixed grid range for all layers and not worry about normalization. Thus each spline (function) is really a composition of a learned function `Spline(tanh(x), spline_params)`. For symbolic analysis, this function can be fused into the spline with handling grid positions manually.
+We apply a squashing function (like tanh) to restrict the input to be in the range $[-1, 1]$. This allows us to keep a fixed grid range for all layers and not worry about normalization. Thus each spline (function) is really a composition of squashing function with learned function `Spline(tanh(x), spline_params)`. For symbolic analysis, this function can be fused into the spline with handling grid positions manually.
 
 ### Single Matrix Multiplication
 
